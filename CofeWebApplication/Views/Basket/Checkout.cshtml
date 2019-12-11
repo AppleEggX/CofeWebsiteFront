@@ -1,0 +1,20 @@
+﻿@model CofeWebApplication.Models.Basket
+@{
+    ViewBag.Title = "Checkout";
+}
+
+<h2>Check Out the Basket</h2>
+<div>
+    <h4> Total money need paying</h4>
+    <div>@Html.DisplayFor(model => model.SumPrice)</div>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color">
+            <input type="submit" value="Confirm" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index", new { id = (int)Model.Id })
+        </div>
+    }
+</div>

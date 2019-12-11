@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="newcofeshopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BasketItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Basket_Id" Type="Int32" />
+    <Property Name="Coffee_Id" Type="Int32" />
+    <NavigationProperty Name="Basket" Relationship="Self.FK_dbo_BasketItems_dbo_Baskets_Basket_Id" FromRole="BasketItems" ToRole="Baskets" />
+    <NavigationProperty Name="Coffee" Relationship="Self.FK_dbo_BasketItems_dbo_Coffees_Coffee_Id" FromRole="BasketItems" ToRole="Coffees" />
+  </EntityType>
+  <EntityType Name="Basket">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SumPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="User_Id" Type="Int32" />
+    <Property Name="Paied" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="BasketItems" Relationship="Self.FK_dbo_BasketItems_dbo_Baskets_Basket_Id" FromRole="Baskets" ToRole="BasketItems" />
+    <NavigationProperty Name="User" Relationship="Self.FK_dbo_Baskets_dbo_Users_User_Id" FromRole="Baskets" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Coffee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Origin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Rating" Type="Double" Nullable="false" />
+    <Property Name="TastingNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Story" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Storage" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <NavigationProperty Name="BasketItems" Relationship="Self.FK_dbo_BasketItems_dbo_Coffees_Coffee_Id" FromRole="Coffees" ToRole="BasketItems" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Admin" Type="Boolean" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Baskets" Relationship="Self.FK_dbo_Baskets_dbo_Users_User_Id" FromRole="Users" ToRole="Baskets" />
+  </EntityType>
+  <Association Name="FK_dbo_BasketItems_dbo_Baskets_Basket_Id">
+    <End Role="Baskets" Type="Self.Basket" Multiplicity="0..1" />
+    <End Role="BasketItems" Type="Self.BasketItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Baskets">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BasketItems">
+        <PropertyRef Name="Basket_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_BasketItems_dbo_Coffees_Coffee_Id">
+    <End Role="Coffees" Type="Self.Coffee" Multiplicity="0..1" />
+    <End Role="BasketItems" Type="Self.BasketItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Coffees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BasketItems">
+        <PropertyRef Name="Coffee_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Baskets_dbo_Users_User_Id">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Baskets" Type="Self.Basket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Baskets">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="newcofeshopEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="BasketItems" EntityType="Self.BasketItem" />
+    <EntitySet Name="Baskets" EntityType="Self.Basket" />
+    <EntitySet Name="Coffees" EntityType="Self.Coffee" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_dbo_BasketItems_dbo_Baskets_Basket_Id" Association="Self.FK_dbo_BasketItems_dbo_Baskets_Basket_Id">
+      <End Role="Baskets" EntitySet="Baskets" />
+      <End Role="BasketItems" EntitySet="BasketItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_BasketItems_dbo_Coffees_Coffee_Id" Association="Self.FK_dbo_BasketItems_dbo_Coffees_Coffee_Id">
+      <End Role="Coffees" EntitySet="Coffees" />
+      <End Role="BasketItems" EntitySet="BasketItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Baskets_dbo_Users_User_Id" Association="Self.FK_dbo_Baskets_dbo_Users_User_Id">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Baskets" EntitySet="Baskets" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

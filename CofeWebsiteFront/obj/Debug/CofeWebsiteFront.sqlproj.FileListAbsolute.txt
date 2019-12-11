@@ -1,0 +1,6 @@
+D:\Coding\C#\CofeWebsiteFront\CofeWebsiteFront\bin\Debug\CofeWebsiteFront.dacpac
+D:\Coding\C#\CofeWebsiteFront\CofeWebsiteFront\bin\Debug\CofeWebsiteFront.dll
+D:\Coding\C#\CofeWebsiteFront\CofeWebsiteFront\bin\Debug\CofeWebsiteFront.pdb
+D:\Coding\C#\CofeWebsiteFront\CofeWebsiteFront\obj\Debug\CofeWebsiteFront.dll
+D:\Coding\C#\CofeWebsiteFront\CofeWebsiteFront\obj\Debug\CofeWebsiteFront.pdb
+D:\Coding\C#\CofeWebsiteFront\CofeWebsiteFront\obj\Debug\CofeWebsiteFront.sqlprojAssemblyReference.cache

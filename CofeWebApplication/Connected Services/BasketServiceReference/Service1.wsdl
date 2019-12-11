@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:51283/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:51283/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:51283/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Pocos" />
+      <xsd:import schemaLocation="http://localhost:51283/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Services" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_GetAllCoffees_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCoffees" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllCoffees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCoffeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCoffeeById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCoffeeById" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCoffeeById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCoffeeByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddtoBasket_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddtoBasket" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddtoBasket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddtoBasketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EditBasketItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditBasketItem" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EditBasketItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditBasketItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteFromBasket_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFromBasket" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteFromBasket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFromBasketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CheckOutBasket_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckOutBasket" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CheckOutBasket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckOutBasketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTheBasketItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTheBasketItems" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTheBasketItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTheBasketItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllBasketItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBasketItems" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllBasketItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBasketItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetHistoryBasket_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHistoryBasket" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetHistoryBasket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHistoryBasketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTheBasket_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTheBasket" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTheBasket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTheBasketResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="GetAllCoffees">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllCoffees" message="tns:IService1_GetAllCoffees_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllCoffeesResponse" message="tns:IService1_GetAllCoffees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCoffeeById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCoffeeById" message="tns:IService1_GetCoffeeById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCoffeeByIdResponse" message="tns:IService1_GetCoffeeById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddtoBasket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddtoBasket" message="tns:IService1_AddtoBasket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddtoBasketResponse" message="tns:IService1_AddtoBasket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditBasketItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/EditBasketItem" message="tns:IService1_EditBasketItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/EditBasketItemResponse" message="tns:IService1_EditBasketItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFromBasket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteFromBasket" message="tns:IService1_DeleteFromBasket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteFromBasketResponse" message="tns:IService1_DeleteFromBasket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckOutBasket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CheckOutBasket" message="tns:IService1_CheckOutBasket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CheckOutBasketResponse" message="tns:IService1_CheckOutBasket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTheBasketItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTheBasketItems" message="tns:IService1_GetTheBasketItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetTheBasketItemsResponse" message="tns:IService1_GetTheBasketItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBasketItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllBasketItems" message="tns:IService1_GetAllBasketItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllBasketItemsResponse" message="tns:IService1_GetAllBasketItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHistoryBasket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetHistoryBasket" message="tns:IService1_GetHistoryBasket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetHistoryBasketResponse" message="tns:IService1_GetHistoryBasket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTheBasket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTheBasket" message="tns:IService1_GetTheBasket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetTheBasketResponse" message="tns:IService1_GetTheBasket_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllCoffees">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAllCoffees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCoffeeById">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetCoffeeById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddtoBasket">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddtoBasket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditBasketItem">
+      <soap:operation soapAction="http://tempuri.org/IService1/EditBasketItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFromBasket">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteFromBasket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckOutBasket">
+      <soap:operation soapAction="http://tempuri.org/IService1/CheckOutBasket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTheBasketItems">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetTheBasketItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBasketItems">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAllBasketItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHistoryBasket">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetHistoryBasket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTheBasket">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetTheBasket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://localhost:51283/Service1.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

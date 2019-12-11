@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Trades History";
+}
+
+<h2>Trades History</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Trade Id
+        </th>
+        <th>
+            Sum Price
+        </th>
+    </tr>
+    @foreach (var bskt in ViewBag.History_basket_id)
+    {
+        <tr>
+            <td>
+                @bskt.Id
+            </td>
+            <td>
+                @bskt.SumPrice
+            </td>
+            <td>
+                @Html.ActionLink("Details", "BsktDetials", new { id = bskt.Id })
+            </td>
+        </tr>
+    }
+</table>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-actions no-color">
+        @Html.ActionLink("Go Back", "Index")
+    </div>
+}

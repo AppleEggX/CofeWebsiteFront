@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Services" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="BasketItemDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:int" />
+      <xs:element minOccurs="0" name="CoffeeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalPrice" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BasketItemDTO" nillable="true" type="tns:BasketItemDTO" />
+  <xs:complexType name="BasketDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Paied" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SumPrice" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BasketDTO" nillable="true" type="tns:BasketDTO" />
+  <xs:complexType name="ArrayOfBasketItemDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BasketItemDTO" nillable="true" type="tns:BasketItemDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBasketItemDTO" nillable="true" type="tns:ArrayOfBasketItemDTO" />
+  <xs:complexType name="ArrayOfBasketDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BasketDTO" nillable="true" type="tns:BasketDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBasketDTO" nillable="true" type="tns:ArrayOfBasketDTO" />
+</xs:schema>

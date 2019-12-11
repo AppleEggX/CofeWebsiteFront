@@ -1,0 +1,45 @@
+﻿@model CofeWebApplication.Models.CoffeeViewModel
+@{
+    ViewBag.Title = "AddToBasket";
+}
+<h2>AddToBasket</h2>
+<div>
+    <h4>Coffee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Name
+        </dt>
+
+        <dd>
+            @ViewBag.coffeeInfo.Name
+        </dd>
+
+        <dt>
+            Price
+        </dt>
+
+        <dd>
+            @ViewBag.coffeeInfo.Price
+        </dd>
+        @*@using (Html.BeginForm("AddToBasketConfirmed", FormMethod.Post))
+        {*@
+        <div class="form-group">
+          
+        </div>
+        @*}*@
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div>
+            @Html.Editor("Amount") <br />
+        </div>
+        <div class="form-actions no-color">
+            <input type="submit" value="Add To Basket" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

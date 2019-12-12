@@ -250,6 +250,7 @@
     <Content Include="Connected Services\BasketServiceReference\CofeWebApplication.BasketServiceReference.BasketDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Connected Services\BasketServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\BasketServiceReference\configuration.svcinfo" />
     <None Include="Connected Services\BasketServiceReference\Reference.svcmap">
